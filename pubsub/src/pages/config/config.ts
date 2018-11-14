@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 
 /**
  * Generated class for the ConfigPage page.
@@ -15,16 +14,10 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'config.html',
 })
 export class ConfigPage {
-  public keys = {};
+  private keyVal: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
-    storage.ready().then(() => {
-      this.loadPublishKey();
-      this.loadSubscribeKey();
-    })
-    .catch((e) => {
-      console.log("storage error", e)
-    })
+  constructor(public navCtrl: NavController, public navParams: NavParams, public events: Events) {
+    this.keyVal = navParams.data['keyVal'];
   }
 
   ionViewDidLoad() {
@@ -32,34 +25,7 @@ export class ConfigPage {
   }
 
   save() {
-    console.log(this.keys);
-    this.savePublishKey(this.keys['publishKey']);
-    this.saveSubscribeKey(this.keys['subscribeKey']);
-  }
-
-  loadPublishKey() {
-    this.storage.get("publishKey")
-    .then((d) => {
-      this.keys['publishKey'] = d;
-    })
-  }
-
-  loadSubscribeKey() {
-    this.storage.get("subscribeKey")
-    .then((d) => {
-      this.keys['subscribeKey'] = d;
-    })
-  }
-
-  savePublishKey(publishKey) {
-    this.storage.set("publishKey", publishKey);
-  }
-
-  saveSubscribeKey(subscribeKey) {
-    this.storage.set("subscribeKey", subscribeKey);
-  }
-
-  getKeys() {
-    return this.keys;
+    this.events.publish("KeyVal", "publishKey", this.keyVal["publishKey"]);
+    this.events.publish("KeyVal", "subscribeKey", this.keyVal["subscribeKey"]);
   }
 }
