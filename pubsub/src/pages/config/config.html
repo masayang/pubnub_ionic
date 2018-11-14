@@ -1,0 +1,26 @@
+<!--
+  Generated template for the ConfigPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Configulation</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label color="primary" stacked>Publish Key</ion-label>
+    <ion-input type="text" placeholder="PubNub Publish Key" [(ngModel)]="keys.publishKey" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary" stacked>Subscribe Key</ion-label>
+    <ion-input type="text" placeholder="PubNub Subscribe Key" [(ngModel)]="keys.subscribeKey"></ion-input>
+  </ion-item>
+  <button ion-button text-capitalize full (click)="save()">Save</button>
+</ion-content>

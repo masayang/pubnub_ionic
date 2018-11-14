@@ -1,0 +1,7 @@
+{
+  "name": "pubsub",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
