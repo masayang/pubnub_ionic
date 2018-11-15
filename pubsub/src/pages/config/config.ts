@@ -27,5 +27,8 @@ export class ConfigPage {
   save() {
     this.events.publish("KeyVal", "publishKey", this.keyVal["publishKey"]);
     this.events.publish("KeyVal", "subscribeKey", this.keyVal["subscribeKey"]);
+    this.events.publish("KeyVal", "channel", this.keyVal["channel"]);
+
+    this.navCtrl.pop();
   }
 }

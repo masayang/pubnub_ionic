@@ -16,11 +16,18 @@
 <ion-content padding>
   <ion-item>
     <ion-label color="primary" stacked>Publish Key</ion-label>
-    <ion-input type="text" placeholder="PubNub Publish Key" [(ngModel)]="keyVal.publishKey" ></ion-input>
+    <ion-input type="text" placeholder="PubNub Publish Key" [(ngModel)]="keyVal.publishKey"></ion-input>
   </ion-item>
+
   <ion-item>
     <ion-label color="primary" stacked>Subscribe Key</ion-label>
     <ion-input type="text" placeholder="PubNub Subscribe Key" [(ngModel)]="keyVal.subscribeKey"></ion-input>
   </ion-item>
+
+  <ion-item>
+    <ion-label color="primary" stacked>Channel Name</ion-label>
+    <ion-input type="text" placeholder="Channel" [(ngModel)]="keyVal.channel"></ion-input>
+  </ion-item>
+
   <button ion-button text-capitalize full (click)="save()">Save</button>
 </ion-content>

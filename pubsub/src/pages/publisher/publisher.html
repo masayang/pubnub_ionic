@@ -1,0 +1,23 @@
+<!--
+  Generated template for the PublisherPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Publisher</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item>
+        <ion-label color="primary" stacked>Nickname</ion-label>
+        <ion-input type="text" placeholder="Your Nickname" [(ngModel)]="name"></ion-input>
+      </ion-item>
+
+      <button ion-button text-capitalize full (click)="publish()" [disabled]="!isReadyToPublish()">Publish</button>
+</ion-content>

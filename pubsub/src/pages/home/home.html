@@ -9,5 +9,8 @@
 <ion-content padding>
   <ion-item>{{ keyVal.publishKey}}</ion-item>
   <ion-item>{{ keyVal.subscribeKey}}</ion-item>
+  <ion-item>{{ keyVal.channel}}</ion-item>
+  <button ion-button text-capitalize full (click)="publisher()" [disabled]="!isConfigReady()">Publisher</button>
+  <button ion-button text-capitalize full (click)="subscriber()" [disabled]="!isConfigReady()">Subscriber</button>
   <button ion-button text-capitalize full (click)="config()">Configuration</button>
 </ion-content>
