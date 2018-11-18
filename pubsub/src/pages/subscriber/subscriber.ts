@@ -56,8 +56,8 @@ export class SubscriberPage {
     this.svg = d3.select("#barChart")
       .append("svg")
       .attr("width", '100%')
-      .attr("height", '100%')
-      .attr('viewBox', '0 0 2000 2000');
+      //      .attr("height", '100%')
+      .attr('viewBox', '0 0 ' + this.width * 1.1 + ' ' + this.height * 1.1);
     this.g = this.svg.append("g")
       .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
   }
@@ -114,6 +114,7 @@ export class SubscriberPage {
       .attr("y", (d) => this.y(this.clients[d]))
       .attr("width", this.x.bandwidth())
       .attr("height", (d) => this.height - this.y(this.clients[d]))
+      .attr("fill", (d) => this.stringToColour(d))
   }
 
   redrawBars() {
@@ -122,15 +123,8 @@ export class SubscriberPage {
     bars
       .enter()
       .append("rect")
-      .attr("x", (d) => {
-        console.log(d);
-        return this.width;
-      })
-      .attr("y", (d) => {
-        console.log(this.clients[d])
-        console.log(this.y(this.clients[d]))
-        return this.y(this.clients[d])
-      })
+      .attr("x", (d) => this.width)
+      .attr("y", (d) => this.y(this.clients[d]))
       .attr("width", this.x.bandwidth())
       .attr("height", (d) => this.height - this.y(this.clients[d]))
       .merge(bars)
@@ -139,10 +133,23 @@ export class SubscriberPage {
       .attr("x", (d) => this.x(d))
       .attr("y", (d) => this.y(this.clients[d]))
       .attr("width", this.x.bandwidth())
-      .attr("height", (d) => this.height - this.y(this.clients[d]));
-
+      .attr("height", (d) => this.height - this.y(this.clients[d]))
+      .attr("fill", (d) => this.stringToColour(d))
   }
 
+   stringToColour(str) {
+    var hash = 0;
+    for (var i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    var colour = '#';
+    for (var i = 0; i < 3; i++) {
+      var value = (hash >> (i * 8)) & 0xFF;
+      colour += ('00' + value.toString(16)).substr(-2);
+    }
+    console.log(colour)
+    return colour;
+  }
 
   names() {
     return Object.keys(this.clients);
