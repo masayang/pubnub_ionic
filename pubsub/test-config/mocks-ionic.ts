@@ -2,6 +2,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 
+export class PubNubAngularMock {
+  public init(keys: any) {
+
+  }
+
+  public publish(arg: any) {
+
+  }
+}
+
 export class StorageMock {
   public ready(): Promise<string> {
     return new Promise((resolve) => {

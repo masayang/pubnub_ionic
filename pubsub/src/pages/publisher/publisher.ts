@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { PubNubAngular } from 'pubnub-angular2';
 import { Storage } from '@ionic/storage';
 
@@ -16,7 +16,7 @@ export class PublisherPage {
   private name: string = "";
   private pubnub: PubNubAngular;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, pubnub: PubNubAngular, public storage: Storage) {
+  constructor(public navCtrl: NavController, pubnub: PubNubAngular, public storage: Storage) {
     this.pubnub = pubnub;
 
     storage.ready()
@@ -24,10 +24,6 @@ export class PublisherPage {
         this.loadPublishKey();
         this.loadChannel();
       })
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PublisherPage');
   }
 
   isReadyToPublish() {
