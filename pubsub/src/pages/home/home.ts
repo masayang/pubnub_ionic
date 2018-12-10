@@ -23,9 +23,9 @@ export class HomePage {
     })
 
     events.subscribe("KeyVal", (key, val) => {
-      console.log("event", key, val)
       this.saveVariable(key, val);
     })
+    
   }
 
   config() {

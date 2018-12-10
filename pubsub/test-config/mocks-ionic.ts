@@ -1,6 +1,35 @@
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+
+export class StorageMock {
+  public ready(): Promise<string> {
+    return new Promise((resolve) => {
+      resolve('READY');
+    });
+  };
+
+  public get(key: string): Promise<string> {
+    return new Promise((resolve) => {
+      resolve('READY');
+    });
+  }
+
+  public set(key: string, value: any) {
+
+  }
+};
+
+export class NavControllerMock {
+  public push() {
+
+  };
+
+  public pop() {
+
+  };
+};
+
 export class PlatformMock {
   public ready(): Promise<string> {
     return new Promise((resolve) => {

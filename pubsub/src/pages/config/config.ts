@@ -20,10 +20,6 @@ export class ConfigPage {
     this.keyVal = navParams.data['keyVal'];
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ConfigPage');
-  }
-
   save() {
     this.events.publish("KeyVal", "publishKey", this.keyVal["publishKey"]);
     this.events.publish("KeyVal", "subscribeKey", this.keyVal["subscribeKey"]);
