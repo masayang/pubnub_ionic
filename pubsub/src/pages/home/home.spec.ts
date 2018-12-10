@@ -7,7 +7,6 @@ import { NavControllerMock, StorageMock } from '../../../test-config/mocks-ionic
 import { ConfigPage } from '../config/config';
 import { SubscriberPage } from '../subscriber/subscriber';
 import { PublisherPage } from '../publisher/publisher';
-import { ifError } from 'assert';
 
 describe('Page: HomePage', () => {
     function generateFixture() {
