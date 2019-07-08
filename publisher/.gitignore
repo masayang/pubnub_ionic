@@ -33,5 +33,5 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 
-environments.ts
-environments.prod.ts
+environment.ts
+environment.prod.ts
