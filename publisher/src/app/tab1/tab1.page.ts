@@ -24,6 +24,7 @@ export class Tab1Page {
   }
 
   countUp() {
+    console.log("countUp")
     this.pubnub.countUp(this.name)
   }
 

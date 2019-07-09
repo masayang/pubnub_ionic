@@ -1,5 +1,7 @@
 {
   "name": "subscriber",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -9,13 +9,10 @@ import { environment } from '../../environments/environment';
 })
 export class PubnubService {
   constructor(public settings: SettingsService, public pubnub: PubNubAngular) {
-    console.log(environment)
-    this.pubnub = pubnub;
-    const r = this.pubnub.init({
+    this.pubnub.init({
       publishKey: environment.pubnub.publisher_key,
       subscribeKey: environment.pubnub.subscriber_key
     })
-    console.log(r);
   }
 
   countUp(name: string) {

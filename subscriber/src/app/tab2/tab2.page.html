@@ -1,9 +1,15 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Settings
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-item>
+      <ion-label>Channel Name</ion-label>
+      <ion-input [(ngModel)]="settings.channelName"></ion-input>
+    
+  </ion-item>
+</ion-content>

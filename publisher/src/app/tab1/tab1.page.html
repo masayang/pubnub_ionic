@@ -11,8 +11,8 @@
     <ion-label color="primary" stacked>Nickname</ion-label>
     <ion-input type="text" placeholder="Your Nickname" [(ngModel)]="name"></ion-input>
   </ion-item>
-  <ion-card [disabled]="!isReadyToPublish()" (click)="countUp()">
-    <ion-img src="/assets/TapHere.png"></ion-img>
+  <ion-card [disabled]="!isReadyToPublish()" >
+    <ion-button class="square" (click)="countUp()">Tap Here</ion-button>
   </ion-card>
 
 </ion-content>
